@@ -26,6 +26,7 @@
 						data_karyawan.masa_kerja, 
 						data_karyawan.pelatihan, 
 						data_karyawan.prestasi, 
+						data_karyawan.wan_prestasi, 
 						data_karyawan.status_pensiun, 
 						golongan.id_gol, 
 						golongan.deskripsi_gol, 
@@ -247,6 +248,14 @@
 							</td>
 							<td>:
 								<?php echo $data_cek['prestasi']; ?>
+							</td>
+						</tr>
+						<tr>
+							<td style="width: 150px">
+								<b>Wan Prestasi</b>
+							</td>
+							<td>:
+								<?php echo $data_cek['wan_prestasi']; ?>
 							</td>
 						</tr>
 						<tr>

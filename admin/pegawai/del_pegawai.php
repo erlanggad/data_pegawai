@@ -1,7 +1,7 @@
 <?php
 
 if(isset($_GET['kode'])){
-    $sql_cek = "select * from data_karyawan where nup='".$_GET['kode']."'";
+    $sql_cek = "select * from data_karyawan where id_kar='".$_GET['kode']."'";
     $query_cek = mysqli_query($koneksi, $sql_cek);
     $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
 }
@@ -13,7 +13,7 @@ if(isset($_GET['kode'])){
         unlink("foto/$foto");
     }
 
-    $sql_hapus = "DELETE FROM data_karyawan WHERE nup='".$_GET['kode']."'";
+    $sql_hapus = "DELETE FROM data_karyawan WHERE id_kar='".$_GET['kode']."'";
     $query_hapus = mysqli_query($koneksi, $sql_hapus);
     if ($query_hapus) {
         echo "<script>

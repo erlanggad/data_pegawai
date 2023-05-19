@@ -217,17 +217,22 @@
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">Riwayat Pelatihan </label>
 				<div class="col-sm-5">
-					<textarea class="form-control" id="pelatihan" name="pelatihan" placeholder="Riwayat Pelatihan" required></textarea>
+					<textarea class="form-control" id="pelatihan" name="pelatihan" placeholder="Riwayat Pelatihan"></textarea>
 				</div>
 			</div>
 
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">Prestasi Kerja </label>
 				<div class="col-sm-5">
-					<textarea class="form-control" id="prestasi" name="prestasi" placeholder="Prestasi Kerja" required></textarea>
+					<textarea class="form-control" id="prestasi" name="prestasi" placeholder="Prestasi Kerja" ></textarea>
 				</div>
 			</div>
-
+			<div class="form-group row">
+				<label class="col-sm-3 col-form-label">Wan Prestasi</label>
+				<div class="col-sm-5">
+					<textarea class="form-control" id="wan_prestasi" name="wan_prestasi" placeholder="Wan Prestasi Kerja"></textarea>
+				</div>
+			</div>
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">Status Kerja</label>
 				<div class="col-sm-5">
@@ -266,7 +271,7 @@
 
 		if(!empty($sumber)){
         $sql_simpan = "INSERT INTO data_karyawan (nup, nama, jenis_kelamin, ttl, tgl_lahir, agama, kawin, telepon, email, 
-		alamat, pendidikan, keterangan, id_status, tmt, tgl_angkatan, no_sk, id_jabatan, id_bagian, id_pangkat, id_gol, masa_kerja, pelatihan, prestasi, status_pensiun, foto) VALUES (
+		alamat, pendidikan, keterangan, id_status, tmt, tgl_angkatan, no_sk, id_jabatan, id_bagian, id_pangkat, id_gol, masa_kerja, pelatihan, prestasi, wan_prestasi, status_pensiun, foto) VALUES (
             '".$_POST['nup']."',
 			'".$_POST['nama']."',
 			'".$_POST['jenis_kelamin']."',
@@ -290,6 +295,7 @@
 			'".$_POST['masa_kerja']."',
 			'".$_POST['pelatihan']."',
 			'".$_POST['prestasi']."',
+			'".$_POST['wan_prestasi']."',
 			'".$_POST['status_pensiun']."',
             '".$nama_file."')";
         $query_simpan = mysqli_query($koneksi, $sql_simpan);

@@ -151,7 +151,39 @@
 								</p>
 							</a>
 						</li>
-
+						<li class="nav-item">
+							<a href="?page=golongan" class="nav-link">
+								<i class="nav-icon far fa-user"></i>
+								<p>
+									Golongan
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="?page=jabatan" class="nav-link">
+								<i class="nav-icon far fa-user"></i>
+								<p>
+									Jabatan
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="?page=pangkat" class="nav-link">
+								<i class="nav-icon far fa-user"></i>
+								<p>
+									Pangkat
+								</p>
+							</a>
+						</li>
+						<li class="nav-item">
+							<a href="?page=unit" class="nav-link">
+								<i class="nav-icon far fa-user"></i>
+								<p>
+									Unit
+								</p>
+							</a>
+						</li>
+						
 						<?php
           				} 
 						elseif($data_level=="Super User"){
@@ -291,12 +323,57 @@
 					break;
 				case 'edit-profil':
 					include "admin/profil/edit_profil.php";
+					break;		
+				
+				//kategori
+				case 'golongan':
+					include "admin/kategori/golongan.php";
 					break;
-				case 'print-tabel':
-					include "report/cetak-semua.php";
+				case 'add-golongan':
+					include "admin/kategori/add_golongan.php";
 					break;	
-
-			
+				case 'edit-golongan':
+					include "admin/kategori/edit_golongan.php";
+					break;
+				case 'del-golongan':
+					include "admin/kategori/del_golongan.php";
+					break;
+				case 'jabatan':
+					include "admin/kategori/jabatan.php";
+					break;
+				case 'add-jabatan':
+					include "admin/kategori/add_jabatan.php";
+					break;	
+				case 'edit-jabatan':
+					include "admin/kategori/edit_jabatan.php";
+					break;
+				case 'del-jabatan':
+					include "admin/kategori/del_jabatan.php";
+					break;	
+				case 'pangkat':
+					include "admin/kategori/pangkat.php";
+					break;
+				case 'add-pangkat':
+					include "admin/kategori/add_pangkat.php";
+					break;	
+				case 'edit-pangkat':
+					include "admin/kategori/edit_pangkat.php";
+					break;
+				case 'del-pangkat':
+					include "admin/kategori/del_pangkat.php";
+					break;
+				case 'unit':
+					include "admin/kategori/unit.php";
+					break;
+				case 'add-unit':
+					include "admin/kategori/add_unit.php";
+					break;	
+				case 'edit-unit':
+					include "admin/kategori/edit_unit.php";
+					break;
+				case 'del-unit':
+					include "admin/kategori/del_unit.php";
+					break;
               //default
               default:
                   echo "<center><h1> ERROR !</h1></center>";

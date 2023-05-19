@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 
@@ -9,8 +10,9 @@
 </head>
 </br>
 <body>
- 	<?php 
-	
+	<?php 
+	header("Content-type:application/vnd-ms-excel");
+	header("Content-Disposition: attachment; filename=Data Pegawai.xls");
 	$koneksi = new mysqli ("localhost","root","","data_pegawai");
 	?>
  	<table border="1" style="width: 100%">
@@ -23,16 +25,21 @@
 				<th width="5%">Agama</th>
 				<th width="5%">Kawin</th>
 				<th width="5%">Telepon</th>
+				<th width="5%">Email</th>
 				<th width="15%">Alamat</th>
 				<th width="5%">Pendidikan</th>
 				<th width="5%">Status</th>           
 				<th width="5%">TMT</th>           
-				<th width="5%">Tgl. Pegawai</th>           
-				<th width="5%">No. SK</th>
+				<th width="5%">Tgl.Pegawai</th>           
+				<th width="5%">No.SK</th>
 				<th width="5%">Jabatan</th>
 				<th width="5%">Unit Bagian</th>
 				<th width="5%">Pangkat</th>
-				<th width="5%">Gol</th>
+				<th width="5%">Golongan</th>
+				<th width="5%">Masa Kerja</th>
+				<th width="5%">Pelatihan</th>
+				<th width="5%">Prestasi</th>
+				<th width="5%">Wan Prestasi</th>
 				<th width="5%">Ket. Pensiun</th>
 			</tr>
 		<?php 
@@ -104,6 +111,10 @@
 				<td style="text-align:center;"><?php echo $dataa['ket_bagian'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['deskripsi_pang'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['deskripsi_gol'];?></td>
+				<td><?php echo $dataa['masa_kerja'];?></td>
+				<td><?php echo $dataa['pelatihan'];?></td>
+				<td><?php echo $dataa['prestasi'];?></td>
+				<td><?php echo $dataa['wan_prestasi'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['status_pensiun'];?></td>
 				
 		   </tr>

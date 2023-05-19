@@ -77,6 +77,7 @@
 						data_karyawan.masa_kerja, 
 						data_karyawan.pelatihan, 
 						data_karyawan.prestasi, 
+						data_karyawan.wan_prestasi, 
 						data_karyawan.status_pensiun, 
 						golongan.id_gol, 
 						golongan.deskripsi_gol, 
@@ -264,6 +265,13 @@
 				<td>:</td>
 				<td>
 					<?php echo $data['prestasi']; ?>
+				</td>
+			</tr>
+			<tr>
+				<td>Wan Prestasi</td>
+				<td>:</td>
+				<td>
+					<?php echo $data['wan_prestasi']; ?>
 				</td>
 			</tr>
 			<tr>

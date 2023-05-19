@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_GET['kode'])){
-        $sql_cek = "SELECT * FROM data_karyawan WHERE nup='".$_GET['kode']."'";
+        $sql_cek = "SELECT * FROM data_karyawan WHERE id_kar='".$_GET['kode']."'";
         $query_cek = mysqli_query($koneksi, $sql_cek);
         $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
     }
@@ -14,6 +14,9 @@
 	</div>
 	<form action="" method="post" enctype="multipart/form-data">
 		<div class="card-body">
+
+		<input type='hidden' class="form-control" name="id_kar" value="<?php echo $data_cek['id_kar']; ?>"
+			 readonly/>
 
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">NUP</label>
@@ -290,17 +293,22 @@
 			<div class="form-group row">
 			<label class="col-sm-3 col-form-label">Riwayat Pelatihan</label>
 				<div class="col-sm-6">
-				<textarea class="form-control" name="pelatihan" required="required"><?php echo $data_cek['pelatihan']; ?></textarea>
+				<textarea class="form-control" name="pelatihan"><?php echo $data_cek['pelatihan']; ?></textarea>
 				</div>
 			</div>
 
 			<div class="form-group row">
 			<label class="col-sm-3 col-form-label">Prestasi Kerja</label>
 				<div class="col-sm-6">
-				<textarea class="form-control" name="prestasi" required="required"><?php echo $data_cek['prestasi']; ?></textarea>
+				<textarea class="form-control" name="prestasi" ><?php echo $data_cek['prestasi']; ?></textarea>
 				</div>
 			</div>
-
+			<div class="form-group row">
+			<label class="col-sm-3 col-form-label">WanPrestasi</label>
+				<div class="col-sm-6">
+				<textarea class="form-control" name="wan_prestasi"><?php echo $data_cek['wan_prestasi']; ?></textarea>
+				</div>
+			</div>
 			<div class="form-group row">
 				<label class="col-sm-3 col-form-label">Status Kerja</label>
 				<div class="col-sm-5">
@@ -358,8 +366,8 @@ if (isset ($_POST['Ubah'])){
             unlink("foto/$foto");}
 
         $sql_ubah = "UPDATE data_karyawan SET
-			nup='".$_POST['nup']."',
 			nama='".$_POST['nama']."',
+			nup='".$_POST['nup']."',
 			jenis_kelamin='".$_POST['jenis_kelamin']."',
 			ttl='".$_POST['ttl']."',
 			tgl_lahir='".$_POST['tgl_lahir']."',
@@ -381,6 +389,7 @@ if (isset ($_POST['Ubah'])){
 			masa_kerja='".$_POST['masa_kerja']."',
 			pelatihan='".$_POST['pelatihan']."',
 			prestasi='".$_POST['prestasi']."',
+			wan_prestasi='".$_POST['wan_prestasi']."',
 			status_pensiun='".$_POST['status_pensiun']."',
 			foto='".$nama_file."'		
             WHERE id_kar='".$_POST['id_kar']."'";
@@ -411,6 +420,7 @@ if (isset ($_POST['Ubah'])){
 			masa_kerja='".$_POST['masa_kerja']."',
 			pelatihan='".$_POST['pelatihan']."',
 			prestasi='".$_POST['prestasi']."',
+			wan_prestasi='".$_POST['wan_prestasi']."',
 			status_pensiun='".$_POST['status_pensiun']."',
 			foto='".$nama_file."'		
             WHERE id_kar='".$_POST['id_kar']."'";

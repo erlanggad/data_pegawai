@@ -1,20 +1,20 @@
-<?php 
-     header("Content-type:application/vnd-ms-excel");
-     header("Content-Disposition: attachment; filename=Data Pegawai.xls");
-	 include "inc/koneksi.php";
-     $koneksi = new mysqli ("localhost","root","","data_pegawai");
-?>
+
 <!DOCTYPE html>
 <html>
+
 <head>
-	<center>
-		<title>.:: Rekap Pegawai PDAM Kabupaten Probolinggo ::.</title>
-		<h3>DATA REKAP PEGAWAI PDAM KAB. PROBOLINGGO TAHUN <?php echo date("Y");?></h3>
+<center>
+	<title>SI Data Pegawai</title>
+	<h3>DATA REKAP PEGAWAI PDAM KAB. PROBOLINGGO TAHUN <?php echo date("Y");?></h3>
 	</center>
 </head>
 </br>
 <body>
-  
+	<?php 
+	header("Content-type:application/vnd-ms-excel");
+	header("Content-Disposition: attachment; filename=Data Pegawai.xls");
+	$koneksi = new mysqli ("localhost","root","","data_pegawai");
+	?>
  	<table border="1" style="width: 100%">
 			<tr style="text-align:center;">
 				<th width="3%" >No</th>
@@ -25,16 +25,21 @@
 				<th width="5%">Agama</th>
 				<th width="5%">Kawin</th>
 				<th width="5%">Telepon</th>
+				<th width="5%">Email</th>
 				<th width="15%">Alamat</th>
 				<th width="5%">Pendidikan</th>
 				<th width="5%">Status</th>           
 				<th width="5%">TMT</th>           
-				<th width="5%">Tgl. Pegawai</th>           
-				<th width="5%">No. SK</th>
+				<th width="5%">Tgl.Pegawai</th>           
+				<th width="5%">No.SK</th>
 				<th width="5%">Jabatan</th>
 				<th width="5%">Unit Bagian</th>
 				<th width="5%">Pangkat</th>
-				<th width="5%">Gol</th>
+				<th width="5%">Golongan</th>
+				<th width="5%">Masa Kerja</th>
+				<th width="5%">Pelatihan</th>
+				<th width="5%">Prestasi</th>
+				<th width="5%">Wan Prestasi</th>
 				<th width="5%">Ket. Pensiun</th>
 			</tr>
 		<?php 
@@ -64,11 +69,12 @@
 						data_karyawan.masa_kerja, 
 						data_karyawan.pelatihan, 
 						data_karyawan.prestasi, 
+						data_karyawan.wan_prestasi, 
 						data_karyawan.status_pensiun, 
 						golongan.id_gol, 
 						golongan.deskripsi_gol, 
 						jabatan.id_jabatan, 
-						jabatan.deskripsi_jab order acs, 
+						jabatan.deskripsi_jab, 
 						stat_pegawai.id_status, 
 						stat_pegawai.ket_status, 
 						pangkat.id_pangkat, 
@@ -96,8 +102,9 @@
 				<td style="text-align:center;"><?php echo $dataa['agama'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['kawin'];?></td>
 				<td><?php echo $dataa['telepon'];?></td>
+				<td><?php echo $dataa['email'];?></td>
 				<td><?php echo $dataa['alamat'];?></td>
-				<td style="text-align:center;"><?php echo $dataa['pendidikan'];?> </br><?php echo $dataa['keterangan'];?></td>
+				<td style="text-align:center;"><?php echo $dataa['pendidikan'];?></br><?php echo $dataa['keterangan'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['id_status'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['tmt'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['tgl_angkatan'];?></td>
@@ -106,6 +113,10 @@
 				<td style="text-align:center;"><?php echo $dataa['ket_bagian'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['deskripsi_pang'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['deskripsi_gol'];?></td>
+				<td><?php echo $dataa['masa_kerja'];?></td>
+				<td><?php echo $dataa['pelatihan'];?></td>
+				<td><?php echo $dataa['prestasi'];?></td>
+				<td><?php echo $dataa['wan_prestasi'];?></td>
 				<td style="text-align:center;"><?php echo $dataa['status_pensiun'];?></td>
 				
 		   </tr>

@@ -9,10 +9,8 @@
 			<div>
 				<a href="?page=add-pegawai" class="btn btn-primary">
 					<i class="fa fa-edit"></i> Tambah Data</a>
-					<a href="report/cetak-semua.php" class="btn btn-danger">
-					<i class="fa fa-print"></i> Print PDF</a>
 					<a href="report/cetakexcel.php" class="btn btn-success">
-					<i class="fa fa-print"></i> Print Excel</a>
+					<i class="fa fa-print"></i> Cetak </a>
 			</div>
 			<br>
 			<table id="example1" class="table table-bordered table-striped">
@@ -43,6 +41,7 @@
 						<th>Masa Kerja</th>
 						<th>Riwayat Pelatihan</th>
 						<th>Prestasi Kerja</th>
+						<th>Wan Prestasi</th>
 						<th>Status Kerja</th>
 						<th>Aksi</th>
 					</tr>
@@ -76,6 +75,7 @@
 											data_karyawan.masa_kerja, 
 											data_karyawan.pelatihan, 
 											data_karyawan.prestasi, 
+											data_karyawan.wan_prestasi,
 											data_karyawan.status_pensiun, 
 											golongan.id_gol, 
 											golongan.deskripsi_gol, 
@@ -174,19 +174,22 @@
 							<?php echo $data['prestasi']; ?>
 						</td>
 						<td>
+							<?php echo $data['wan_prestasi']; ?>
+						</td>
+						<td>
 							<?php echo $data['status_pensiun']; ?>
 						</td>
 
 						<td>
-							<a href="?page=view-pegawai&kode=<?php echo $data['nup']; ?>" title="Detail"
+							<a href="?page=view-pegawai&kode=<?php echo $data['id_kar']; ?>" title="Detail"
 							 class="btn btn-info btn-sm">
 								<i class="fa fa-eye"></i>
 							</a>
 							</a>
-							<a href="?page=edit-pegawai&kode=<?php echo $data['nup']; ?>" title="Ubah" class="btn btn-success btn-sm">
+							<a href="?page=edit-pegawai&kode=<?php echo $data['id_kar']; ?>" title="Ubah" class="btn btn-success btn-sm">
 								<i class="fa fa-edit"></i>
 							</a>
-							<a href="?page=del-pegawai&kode=<?php echo $data['nup']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"
+							<a href="?page=del-pegawai&kode=<?php echo $data['id_kar']; ?>" onclick="return confirm('Apakah anda yakin hapus data ini ?')"
 							 title="Hapus" class="btn btn-danger btn-sm">
 								<i class="fa fa-trash"></i>
 						</td>

@@ -7,8 +7,8 @@
 	<div class="card-body">
 		<div class="table-responsive">
 			<div>
-					<a href="?./report/cetak-semua.php" class="btn btn-primary">
-					<i class="fa fa-edit"></i> Print</a>
+			<a href="report/cetakexcel.php" class="btn btn-success">
+					<i class="fa fa-print"></i> Cetak </a>
 			</div>
 			<br>
 			<table id="example1" class="table table-bordered table-striped">
@@ -39,6 +39,7 @@
 						<th>Masa Kerja</th>
 						<th>Riwayat Pelatihan</th>
 						<th>Prestasi Kerja</th>
+						<th>Wan Prestasi</th>
 						<th>Status Kerja</th>
 						<th>Aksi</th>
 					</tr>
@@ -72,6 +73,7 @@
 											data_karyawan.masa_kerja, 
 											data_karyawan.pelatihan, 
 											data_karyawan.prestasi, 
+											data_karyawan.wan_prestasi, 
 											data_karyawan.status_pensiun, 
 											golongan.id_gol, 
 											golongan.deskripsi_gol, 
@@ -168,6 +170,9 @@
 						</td>
 						<td>
 							<?php echo $data['prestasi']; ?>
+						</td>
+						<td>
+							<?php echo $data['wan_prestasi']; ?>
 						</td>
 						<td>
 							<?php echo $data['status_pensiun']; ?>

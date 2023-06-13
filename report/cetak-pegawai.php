@@ -1,7 +1,5 @@
 <?php
 	include "../inc/koneksi.php";
-	
-	$nup = $_GET['nup'];
 
 	$sql_cek = "SELECT * FROM tb_profil";
 	$query_cek = mysqli_query($koneksi, $sql_cek);
@@ -52,7 +50,7 @@
 			<?php
 			}
 
-			$sql_tampil = "SELECT data_karyawan.id_kar,
+			$sql_cek = mysqli_query($koneksi,"	SELECT data_karyawan.id_kar,
 						data_karyawan.foto, 
 						data_karyawan.nup, 
 						data_karyawan.nama, 
@@ -77,7 +75,7 @@
 						data_karyawan.masa_kerja, 
 						data_karyawan.pelatihan, 
 						data_karyawan.prestasi, 
-						data_karyawan.wan_prestasi, 
+						data_karyawan.wan_prestasi,
 						data_karyawan.status_pensiun, 
 						golongan.id_gol, 
 						golongan.deskripsi_gol, 
@@ -89,17 +87,15 @@
 						pangkat.deskripsi_pang, 
 						unit_bagian.id_bagian, 
 						unit_bagian.ket_bagian
-			from data_karyawan 
+					FROM data_karyawan 
 						INNER JOIN golongan ON data_karyawan.id_gol=golongan.id_gol 
 						INNER JOIN jabatan ON data_karyawan.id_jabatan=jabatan.id_jabatan 
 						INNER JOIN stat_pegawai ON data_karyawan.id_status=stat_pegawai.id_status 
 						iNNER JOIN pangkat ON data_karyawan.id_pangkat=pangkat.id_pangkat 
-						INNER JOIN unit_bagian ON data_karyawan.id_bagian=unit_bagian.id_bagian 
-			where nup='$nup'";
-			$query_tampil = mysqli_query($koneksi, $sql_tampil);
-			$no=1;
-			while ($data = mysqli_fetch_array($query_tampil,MYSQLI_BOTH)) {
-		?>
+						INNER JOIN unit_bagian ON data_karyawan.id_bagian=unit_bagian.id_bagian
+					");
+		while($data = mysqli_fetch_array($sql_cek)){
+		?> 
 	</center>
 
 	<center>

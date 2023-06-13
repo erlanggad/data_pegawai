@@ -179,7 +179,7 @@
 						</td>
 
 						<td>
-							<a href="?page=view-pegawai-user&kode=<?php echo $data['nup']; ?>" title="Detail"
+							<a href="?page=view-pegawai-user&kode=<?php echo $data['id_kar']; ?>" title="Detail"
 							 class="btn btn-info btn-sm">
 								<i class="fa fa-eye"></i>
 							</a>

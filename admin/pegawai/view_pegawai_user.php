@@ -44,7 +44,7 @@
 						INNER JOIN stat_pegawai ON data_karyawan.id_status=stat_pegawai.id_status 
 						iNNER JOIN pangkat ON data_karyawan.id_pangkat=pangkat.id_pangkat 
 						INNER JOIN unit_bagian ON data_karyawan.id_bagian=unit_bagian.id_bagian
-		WHERE nup='".$_GET['kode']."'";
+		WHERE id_kar='".$_GET['kode']."'";
         $query_cek = mysqli_query($koneksi, $sql_cek);
         $data_cek = mysqli_fetch_array($query_cek,MYSQLI_BOTH);
     }
